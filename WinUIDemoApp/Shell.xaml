@@ -9,4 +9,11 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <StackPanel>
+        <Button
+            Command="{x:Bind ViewModel.LoadedCommand}"
+            Content="Start" />
+        <ListView ItemsSource="{x:Bind ViewModel.Items}" />
+    </StackPanel>
+
 </Page>

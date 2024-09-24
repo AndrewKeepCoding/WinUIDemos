@@ -9,4 +9,28 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <Grid RowDefinitions="Auto,*">
+        <Grid
+            x:Name="DroppingSpaceGrid"
+            Grid.Row="0"
+            AllowDrop="True"
+            Background="Transparent"
+            DragOver="DroppingSpaceGrid_DragOver"
+            Drop="DroppingSpaceGrid_Drop">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="Drop your PDF here." />
+        </Grid>
+        <GridView
+            Grid.Row="1"
+            ItemsSource="{x:Bind Pages, Mode=OneWay}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="BitmapImage">
+                    <Image Source="{x:Bind Mode=OneWay}" />
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+
 </Page>

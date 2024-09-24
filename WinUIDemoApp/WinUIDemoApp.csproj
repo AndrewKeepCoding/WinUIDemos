@@ -19,6 +19,7 @@
     -->
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="MainPage.xaml" />
     <None Remove="Shell.xaml" />
   </ItemGroup>
 
@@ -61,4 +62,10 @@
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
+  <ItemGroup>
+    <CustomAdditionalCompileInputs Remove="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Remove="MainPage.xaml" />
+  </ItemGroup>
 </Project>

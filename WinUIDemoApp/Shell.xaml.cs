@@ -6,5 +6,8 @@ public sealed partial class Shell : Page
     public Shell()
     {
         InitializeComponent();
+
+        Content = new MainPage();
+        //Content = new MainPage(new MainPageViewModel());
     }
 }

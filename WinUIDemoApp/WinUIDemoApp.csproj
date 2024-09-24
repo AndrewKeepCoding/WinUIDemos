@@ -39,6 +39,12 @@
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet7WinUILibrary\DotNet7WinUILibrary.csproj" />
+    <!--<ProjectReference Include="..\DotNet8WinUILibrary\DotNet8WinUILibrary.csproj" />-->
+    <!--<ProjectReference Include="..\DotNet9WinUILibrary\DotNet8WinUILibrary.csproj" />-->
+  </ItemGroup>
+
   <!--
     Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
     Tools extension to be activated for this project even if the Windows App SDK Nuget

@@ -9,4 +9,16 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <Border
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        BorderBrush="LightGreen"
+        BorderThickness="1">
+        <Button
+            x:Uid="SomeButton"
+            Content="Button"
+            IsEnabled="False"
+            Visibility="Collapsed" />
+    </Border>
+
 </Page>

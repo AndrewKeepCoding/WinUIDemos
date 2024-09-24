@@ -9,4 +9,27 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <Grid
+      Margin="32"
+      RowDefinitions="Auto,*"
+      RowSpacing="32">
+        <StackPanel
+          Grid.Row="0"
+          Orientation="Horizontal"
+          Spacing="32">
+            <Button
+              Click="BindButton_Click"
+              Content="Bind" />
+            <Button
+              Click="UnbindButton_Click"
+              Content="Unbind" />
+        </StackPanel>
+        <StackPanel
+          Grid.Row="1"
+          Spacing="32">
+            <TextBox x:Name="SourceTextBox" />
+            <TextBlock x:Name="TargetTextBlock" />
+        </StackPanel>
+    </Grid>
+
 </Page>

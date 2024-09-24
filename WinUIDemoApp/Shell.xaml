@@ -9,4 +9,25 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <local:TreeViewItemTemplateSelector x:Name="TreeViewItemTemplateSelector">
+            <local:TreeViewItemTemplateSelector.ParentItemTemplate>
+                <DataTemplate x:DataType="local:Parent">
+                    <TreeViewItem
+                        Content="{x:Bind Name}"
+                        ItemsSource="{x:Bind Children}" />
+                </DataTemplate>
+            </local:TreeViewItemTemplateSelector.ParentItemTemplate>
+            <local:TreeViewItemTemplateSelector.ChildItemTemplate>
+                <DataTemplate x:DataType="local:Child">
+                    <TreeViewItem Content="{x:Bind Name}" />
+                </DataTemplate>
+            </local:TreeViewItemTemplateSelector.ChildItemTemplate>
+        </local:TreeViewItemTemplateSelector>
+    </Page.Resources>
+
+    <TreeView
+        ItemTemplateSelector="{StaticResource TreeViewItemTemplateSelector}"
+        ItemsSource="{x:Bind ViewModel.Parents, Mode=OneWay}" />
+
 </Page>

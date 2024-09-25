@@ -13,6 +13,7 @@
         <Button
             Command="{x:Bind ViewModel.LoadedCommand}"
             Content="Start" />
+        <TextBlock Text="{x:Bind ViewModel.Message, Mode=OneWay}" />
         <ListView ItemsSource="{x:Bind ViewModel.Items}" />
     </StackPanel>
 

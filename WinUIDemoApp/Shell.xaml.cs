@@ -3,17 +3,43 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.WinUI;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml.Controls;
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace WinUIDemoApp;
 
+public static class DispatcherQueueExtensions
+{
+    public static bool TryEnqueue(this DispatcherQueue dispatcherQueue, Action enqueueingAction, Action<Exception> exceptionAction)
+    {
+        return dispatcherQueue.TryEnqueue(() =>
+        {
+            try
+            {
+                enqueueingAction();
+            }
+            catch (Exception exception)
+            {
+                if (exceptionAction is null)
+                {
+                    throw;
+                }
+
+                exceptionAction(exception);
+            }
+        });
+    }
+}
+
 public partial class ShellViewModel : ObservableObject
 {
+    [ObservableProperty]
+    private string _message = string.Empty;
+
     public ObservableCollection<string> Items { get; private set; } = ["Item#1", "Item#2", "Item#3"];
 
     private DispatcherQueue DispatcherQueue { get; } = DispatcherQueue.GetForCurrentThread();
-
 
     [RelayCommand]
     private async Task OnLoaded()
@@ -56,10 +82,19 @@ public partial class ShellViewModel : ObservableObject
         //    },
         //    DispatcherQueuePriority.High);
         //});
+
+        DispatcherQueue.TryEnqueue(() =>
+        {
+            Items.Clear();
+            throw new Exception("Exception from TryEnqueue");
+        },
+        exception =>
+        {
+            Message = exception.Message;
+        });
     }
 
 }
-
 
 public sealed partial class Shell : Page
 {
@@ -69,6 +104,8 @@ public sealed partial class Shell : Page
         Loaded += Shell_Loaded;
     }
 
+    private ShellViewModel ViewModel { get; } = new();
+
     private async void Shell_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
     {
         await ViewModel.LoadedCommand.ExecuteAsync(null);
@@ -76,8 +113,5 @@ public sealed partial class Shell : Page
         //{
         //    await ViewModel.LoadedCommand.ExecuteAsync(null);
         //});
-
     }
-
-    private ShellViewModel ViewModel { get; } = new();
 }

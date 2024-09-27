@@ -9,4 +9,34 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <Grid
+        Margin="32"
+        RowDefinitions="Auto,*"
+        RowSpacing="32">
+
+        <StackPanel
+            Grid.Row="0"
+            Orientation="Horizontal"
+            Spacing="32">
+            <NumberBox
+                x:Name="IntervalValueNumberBox"
+                Value="100" />
+            <ComboBox
+                x:Name="IntervalTimeSpanUnitComboBox"
+                ItemsSource="{x:Bind IntervalTimeSpanUnitOptions}"
+                SelectedIndex="0" />
+            <Button
+                Click="StartButton_Click"
+                Content="Start" />
+            <Button
+                Click="StopButton_Click"
+                Content="Stop" />
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <TextBlock x:Name="TimerTextBlock" />
+        </Grid>
+
+    </Grid>
+
 </Page>

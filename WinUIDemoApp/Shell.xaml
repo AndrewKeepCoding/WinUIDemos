@@ -6,7 +6,30 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:WinUIDemoApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:CommunityToolkit.WinUI.UI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+
+    <Grid
+        Margin="16"
+        RowDefinitions="Auto,*"
+        RowSpacing="32">
+        <StackPanel
+            Grid.Row="0"
+            Orientation="Horizontal"
+            Spacing="32">
+            <Button
+                Command="{x:Bind ViewModel.AddItemCommand}"
+                Content="Add" />
+            <Button
+                Command="{x:Bind ViewModel.RemoveItemCommand}"
+                CommandParameter="{x:Bind DataGridControl.SelectedItem, Mode=OneWay}"
+                Content="Remove" />
+        </StackPanel>
+        <toolkit:DataGrid
+            x:Name="DataGridControl"
+            Grid.Row="1"
+            ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}" />
+    </Grid>
 
 </Page>

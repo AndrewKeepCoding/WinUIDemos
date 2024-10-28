@@ -4,9 +4,107 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data="using:Windows.ApplicationModel.DataTransfer"
+    xmlns:imaging="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:local="using:WinUIDemoApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <FontIcon
+            x:Key="CopyFontIcon"
+            Glyph="&#xE8C8;" />
+        <DataTemplate x:Key="CopyButtonTemplate">
+            <FontIcon Glyph="&#xE8C8;" />
+        </DataTemplate>
+        <DataTemplate x:Key="PasteButtonTemplate">
+            <FontIcon Glyph="&#xE77F;" />
+        </DataTemplate>
+        <Style
+            x:Key="CopyButtonStyle"
+            BasedOn="{StaticResource DefaultButtonStyle}"
+            TargetType="Button">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="ContentTemplate" Value="{StaticResource CopyButtonTemplate}" />
+        </Style>
+
+        <Style
+            x:Key="PasteButtonStyle"
+            BasedOn="{StaticResource DefaultButtonStyle}"
+            TargetType="Button">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="ContentTemplate" Value="{StaticResource PasteButtonTemplate}" />
+        </Style>
+
+        <local:ClipboardHistoryItemTemplateSelector x:Key="ClipboardHistoryItemTemplateSelector">
+            <local:ClipboardHistoryItemTemplateSelector.TextTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <TextBlock Text="{x:Bind}" />
+                </DataTemplate>
+            </local:ClipboardHistoryItemTemplateSelector.TextTemplate>
+            <local:ClipboardHistoryItemTemplateSelector.ImageTemplate>
+                <DataTemplate x:DataType="imaging:WriteableBitmap">
+                    <Image Source="{x:Bind}" />
+                </DataTemplate>
+            </local:ClipboardHistoryItemTemplateSelector.ImageTemplate>
+        </local:ClipboardHistoryItemTemplateSelector>
+    </Page.Resources>
+
+    <Grid
+        Margin="12"
+        ColumnDefinitions="300,*,300"
+        ColumnSpacing="12">
+        <Grid
+            ColumnDefinitions="*,Auto"
+            ColumnSpacing="12"
+            RowDefinitions="Auto,Auto"
+            RowSpacing="12">
+            <TextBox
+                x:Name="CopySourceTextBox"
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Some text" />
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Click="CopyTextButton_Click"
+                Content="Copy Text" />
+        </Grid>
+
+        <StackPanel Grid.Column="1">
+            <ListView
+                x:Name="ClipboardHistoryItemsListView"
+                Header="Clipboard">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:ClipboardItem">
+                        <StackPanel Margin="12">
+                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                <SymbolIcon
+                                    Grid.Column="0"
+                                    Symbol="Character" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Text="{x:Bind Timestamp.LocalDateTime}" />
+                                <Button
+                                    Grid.Column="2"
+                                    Content="Copy" />
+                            </Grid>
+
+                            <ContentControl
+                                Content="{x:Bind Content, Mode=OneWay}"
+                                ContentTemplateSelector="{StaticResource ClipboardHistoryItemTemplateSelector}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <ContentControl Grid.Column="2" />
+    </Grid>
 
 </Page>

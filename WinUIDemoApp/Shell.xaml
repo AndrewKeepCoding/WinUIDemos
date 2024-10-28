@@ -9,4 +9,20 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <local:IntToStringConverter x:Key="IntToStringConverter" />
+    </Page.Resources>
+
+    <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+        <TextBox Text="{x:Bind ViewModel.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Text="{x:Bind ViewModel.Name, Mode=OneWay}" />
+        <TextBox Text="{x:Bind ViewModel.Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntToStringConverter}}" />
+        <Button
+            Command="{x:Bind ViewModel.SubmitCommand}"
+            Content="Submit" />
+        <TextBlock Text="{x:Bind ViewModel.Message, Mode=OneWay}" />
+    </StackPanel>
+
 </Page>

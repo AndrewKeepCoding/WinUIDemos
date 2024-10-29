@@ -9,4 +9,39 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <Grid
+        RowDefinitions="Auto,*"
+        RowSpacing="8">
+        <StackPanel
+            Grid.Row="0"
+            Orientation="Horizontal">
+            <NumberBox
+                x:Name="MemberIndexNumberBox"
+                Value="100" />
+            <Button
+                Click="GoToMemberButton_Click"
+                Content="Go" />
+        </StackPanel>
+        <ScrollViewer
+            x:Name="ItemsRepeaterScrollViewer"
+            Grid.Row="1">
+            <ItemsRepeater
+                x:Name="MemberItemsRepeater"
+                ItemsSource="{x:Bind ViewModel.Members, Mode=OneWay}">
+                <ItemsRepeater.ItemTemplate>
+                    <DataTemplate x:DataType="local:Member">
+                        <Grid ColumnDefinitions="30,100">
+                            <TextBlock
+                                Grid.Column="0"
+                                Text="{x:Bind Id}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Text="{x:Bind Name, Mode=OneWay}" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsRepeater.ItemTemplate>
+            </ItemsRepeater>
+        </ScrollViewer>
+    </Grid>
+
 </Page>

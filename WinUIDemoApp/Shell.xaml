@@ -9,4 +9,26 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <Grid
+        Padding="8"
+        ColumnDefinitions="*,*"
+        ColumnSpacing="8">
+        <Grid
+            Grid.Column="0"
+            AllowDrop="True"
+            Background="Transparent"
+            BorderBrush="SkyBlue"
+            BorderThickness="1"
+            DragOver="Grid_DragOver"
+            Drop="Grid_Drop">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="Drop a file here" />
+        </Grid>
+        <ListView
+            Grid.Column="1"
+            ItemsSource="{x:Bind Items}" />
+    </Grid>
+
 </Page>

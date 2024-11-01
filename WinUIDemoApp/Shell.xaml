@@ -6,7 +6,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:WinUIDemoApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="Transparent"
     mc:Ignorable="d">
+
+    <NavigationView SelectionChanged="NavigationView_SelectionChanged">
+        <NavigationView.MenuItems>
+            <NavigationViewItem
+                Content="Home"
+                Icon="Home"
+                IsSelected="True"
+                Tag="WinUIDemoApp.HomePage" />
+            <NavigationViewItem
+                Content="Page 1"
+                Icon="Emoji"
+                Tag="WinUIDemoApp.Page1" />
+        </NavigationView.MenuItems>
+        <Frame x:Name="ContentFrame" />
+    </NavigationView>
 
 </Page>

@@ -20,6 +20,7 @@
     -->
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Controls\AwesomeCustomControl.xaml" />
     <None Remove="Shell.xaml" />
   </ItemGroup>
 
@@ -48,6 +49,11 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\AwesomeCustomControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Shell.xaml">

@@ -1,0 +1,13 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinUIDemoApp">
+
+    <ResourceDictionary.MergedDictionaries>
+        <!--  Incorrect Source  -->
+        <ResourceDictionary Source="/Controls/AwesomeControl.xaml" />
+        <!--  Correct Source  -->
+        <!--<ResourceDictionary Source="/Controls/AwesomeCustomControl.xaml" />-->
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

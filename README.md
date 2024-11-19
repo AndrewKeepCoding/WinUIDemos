@@ -7,9 +7,9 @@ Don't forget to give a ⭐ if you find it helpuf.🤩
 
 ### Exceptions
 
-#### Case 01: XAML Parse Exception
+#### Case 01
 
-- Exception
+- Microsoft.UI.Xaml.Markup.XamlParseException:
 
     ```
     The text associated with this error code could not be found.
@@ -49,17 +49,17 @@ Don't forget to give a ⭐ if you find it helpuf.🤩
   Typo in the `Source` property of the `ResourceDictionary` element.
 
   ```xml
-    <ResourceDictionary
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="using:WinUIDemoApp">
+  <ResourceDictionary
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:WinUIDemoApp">
 
-        <ResourceDictionary.MergedDictionaries>
-            <!--  Incorrect Source  -->
-            <ResourceDictionary Source="/Controls/AwesomeControl.xaml" />
-            <!--  Correct Source  -->
-            <!--<ResourceDictionary Source="/Controls/AwesomeCustomControl.xaml" />-->
-        </ResourceDictionary.MergedDictionaries>
+      <ResourceDictionary.MergedDictionaries>
+          <!--  Incorrect Source  -->
+          <ResourceDictionary Source="/Controls/AwesomeControl.xaml" />
+          <!--  Correct Source  -->
+          <!--<ResourceDictionary Source="/Controls/AwesomeCustomControl.xaml" />-->
+      </ResourceDictionary.MergedDictionaries>
 
-    </ResourceDictionary>
+  </ResourceDictionary>
   ```

@@ -6,7 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:WinUIDemoApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:win2d="using:Microsoft.Graphics.Canvas.UI.Xaml"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+
+    <win2d:CanvasControl
+        x:Name="CanvasControl"
+        Draw="CanvasControl_Draw" />
 
 </Page>

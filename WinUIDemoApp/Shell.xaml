@@ -9,4 +9,53 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <Style TargetType="local:ComboBoxEx" x:Key="Test">
+            <Setter Property="Foreground" Value="LightGreen"/>
+        </Style>
+    </Page.Resources>
+
+    <StackPanel>
+        <!--<StackPanel>
+            <local:ComboBoxEx ItemsSource="{x:Bind ViewModel.UnitsOptions}" SelectedIndex="2"/>
+        </StackPanel>-->
+
+        <!--<StackPanel Orientation="Horizontal">
+            <local:ComboBoxEx
+                ItemsSource="{x:Bind ViewModel.UnitsEnumOptions}"
+                SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="{x:Bind ViewModel.SelectedItem, Mode=OneWay}" />
+        </StackPanel>-->
+
+        <StackPanel Orientation="Horizontal">
+            <Button Click="Button_Click" Content="?"/>
+            <local:ComboBoxEx
+                DisplayMemberPath="Item2"
+                IsEditable="True"
+                ItemsSource="{x:Bind ViewModel.UnitsOptions}"
+                SelectedValue="{x:Bind ViewModel.SelectedValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                SelectedValuePath="Item1" />
+            <TextBlock Text="{x:Bind ViewModel.SelectedValue, Mode=OneWay}" />
+        </StackPanel>
+
+        <!--<StackPanel Orientation="Horizontal">
+            <ComboBox
+                DisplayMemberPath="Item2"
+                IsEditable="True"
+                ItemsSource="{x:Bind ViewModel.UnitsOptions}"
+                SelectedValue="{x:Bind ViewModel.SelectedValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                SelectedValuePath="Item1" />
+            <TextBlock Text="{x:Bind ViewModel.SelectedValue, Mode=OneWay}" />
+        </StackPanel>-->
+
+        <!--<StackPanel Orientation="Horizontal">
+            <ComboBox
+                ItemsSource="{x:Bind ViewModel.NumberOptions}"
+                SelectedValuePath="Item1"
+                DisplayMemberPath="Item2"
+                SelectedValue="{x:Bind ViewModel.SelectedNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="{x:Bind ViewModel.SelectedNumber, Mode=OneWay}" />
+        </StackPanel>-->
+    </StackPanel>
+
 </Page>

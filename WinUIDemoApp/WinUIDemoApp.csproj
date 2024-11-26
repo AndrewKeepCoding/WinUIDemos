@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <LangVersion>latest</LangVersion>
-    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>WinUIDemoApp</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -18,6 +18,7 @@
     <WindowsPackageType>None</WindowsPackageType>
     <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
     -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Shell.xaml" />

@@ -9,4 +9,23 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <!--<Page.Resources>
+        <local:TestConverter x:Key="TestConverter" />
+    </Page.Resources>-->
+
+    <!--<ListView ItemsSource="{x:Bind ViewModel.Members, Mode=OneWay}">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="local:Member">
+                <Grid ColumnDefinitions="30,100">
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="{x:Bind Id}" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{x:Bind Name, Mode=OneWay}" />
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>-->
+
 </Page>

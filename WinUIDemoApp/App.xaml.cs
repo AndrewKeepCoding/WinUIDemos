@@ -1,5 +1,9 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Documents;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace WinUIDemoApp;
 
@@ -22,7 +26,19 @@ public partial class App : Application
             })
             .Build();
 
-        Window = new MainWindow();
-        Window.Activate();
+        var splashScreen = new SplashScreen(typeof(MainWindow))
+        {
+            Function = async () =>
+            {
+                await GetMethod();
+            }
+        };
+
+        splashScreen.Completed += (s, e) => Window = e;
+    }
+
+    private async Task GetMethod()
+    {
+        await Task.Delay(5000);
     }
 }

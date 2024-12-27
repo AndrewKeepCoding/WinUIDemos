@@ -6,7 +6,41 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:WinUIDemoApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <local:SectionContentTemplateSelector x:Key="SubSectionDataTemplateSelector">
+            <local:SectionContentTemplateSelector.DataTemplate>
+                <DataTemplate x:DataType="local:Section">
+                    <Button Content="{x:Bind}" />
+                </DataTemplate>
+            </local:SectionContentTemplateSelector.DataTemplate>
+        </local:SectionContentTemplateSelector>
+    </Page.Resources>
+
+    <StackPanel>
+        <ItemsControl ItemsSource="{x:Bind ViewModel.Sections}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="local:Section">
+                    <toolkit:SettingsExpander
+                        Content="{x:Bind Content}"
+                        Description="{x:Bind Description}"
+                        Header="{x:Bind Header}"
+                        ItemsSource="{x:Bind SubSections}">
+                        <toolkit:SettingsExpander.ItemTemplate>
+                            <DataTemplate x:DataType="local:Section">
+                                <toolkit:SettingsCard
+                                    Content="{x:Bind Content}"
+                                    Description="{x:Bind Description}"
+                                    Header="{x:Bind Header}" />
+                            </DataTemplate>
+                        </toolkit:SettingsExpander.ItemTemplate>
+                    </toolkit:SettingsExpander>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
 
 </Page>

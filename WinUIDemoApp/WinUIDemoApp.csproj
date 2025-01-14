@@ -14,10 +14,10 @@
     <EnableMsixTooling>true</EnableMsixTooling>
     <Nullable>enable</Nullable>
     <WindowsSdkPackageVersion>10.0.19041.38</WindowsSdkPackageVersion>
-    <!--
+
     <WindowsPackageType>None</WindowsPackageType>
     <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
-    -->
+
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Shell.xaml" />
@@ -38,6 +38,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.241114003" />
+    <PackageReference Include="WinUI3Localizer" Version="2.2.0" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
@@ -63,4 +64,27 @@
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
+
+  <!-- If the app is "Non-Packaged", define "IS_NON_PACKAGED" constant. -->
+  <PropertyGroup Condition="'$(WindowsPackageType)' == 'None'">
+    <DefineConstants>IS_NON_PACKAGED</DefineConstants>
+  </PropertyGroup>
+
+  <!-- If the app is "Non-Packaged", copy the "Strings" folder to the output directory -->
+  <Target Name="CopyStringResources" AfterTargets="Build">
+    <ItemGroup>
+      <StringResources Include="$(ProjectDir)Strings\**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(StringResources)" DestinationFiles="$(OutDir)Strings\%(RecursiveDir)%(Filename)%(Extension)" SkipUnchangedFiles="true" />
+  </Target>
+
+  <!-- Embed all "Resources.resw" files in the "Strings" folder to the output folder. -->
+  <ItemGroup>
+    <Content Include="Strings\**\*.resw">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Strings\es-ES\Resources.resw" />
+  </ItemGroup>
 </Project>

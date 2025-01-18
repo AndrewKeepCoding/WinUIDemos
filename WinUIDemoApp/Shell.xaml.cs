@@ -8,16 +8,16 @@ namespace WinUIDemoApp;
 public partial class Member : ObservableObject
 {
     [ObservableProperty]
-    private int _id;
+    public partial int Id { get; set; }
 
     [ObservableProperty]
-    private string _name = string.Empty;
+    public partial string Name { get; set; } = string.Empty;
 }
 
 public partial class ShellViewModel : ObservableObject
 {
     [ObservableProperty]
-    private ObservableCollection<Member> _members = [];
+    public partial ObservableCollection<Member> Members { get; set; } = [];
 
     public ShellViewModel()
     {

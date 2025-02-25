@@ -1,7 +1,8 @@
-using Microsoft.UI.Xaml;
+using WinUIEx;
 
 namespace WinUIDemoApp;
-public sealed partial class MainWindow : Window
+
+public sealed partial class MainWindow : WindowEx
 {
     public MainWindow()
     {

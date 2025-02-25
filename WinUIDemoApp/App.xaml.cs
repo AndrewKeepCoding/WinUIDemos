@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
+using WinUIEx;
 
 namespace WinUIDemoApp;
 
@@ -12,7 +13,7 @@ public partial class App : Application
 
     private IHost? Host { get; set; }
 
-    private Window? Window { get; set; }
+    private WindowEx? Window { get; set; }
 
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {

@@ -8,6 +8,21 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <local:Shell />
+    <Grid RowDefinitions="Auto,*">
+        <TitleBar x:Name="TitleBarControl"
+            Title="WinUI Demos"
+            Grid.Row="0">
+            <TitleBar.IconSource>
+                <ImageIconSource ImageSource="/Assets/GalleryIcon.ico" />
+            </TitleBar.IconSource>
+            <!--<TitleBar.LeftHeader>
+                <Button Content="Left Header" />
+            </TitleBar.LeftHeader>-->
+            <!--<TitleBar.RightHeader>
+                <Button Content="Right Header" />
+            </TitleBar.RightHeader>-->
+        </TitleBar>
+        <local:Shell Grid.Row="1" />
+    </Grid>
 
 </Window>

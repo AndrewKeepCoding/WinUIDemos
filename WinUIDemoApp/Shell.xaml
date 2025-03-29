@@ -9,4 +9,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+        <Button
+            Command="{x:Bind ViewModel.IncrementCommand}"
+            Content="Increment" />
+        <TextBlock Text="{x:Bind ViewModel.Count, Mode=OneWay}" />
+    </StackPanel>
+
 </Page>

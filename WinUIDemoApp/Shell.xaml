@@ -6,7 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:WinUIDemoApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+
+    <StackPanel>
+        <toolkit:Segmented SelectedIndex="1">
+            <toolkit:SegmentedItem Content="Item 1" />
+            <toolkit:SegmentedItem Content="Item 2" />
+            <toolkit:SegmentedItem Content="Item 3" />
+        </toolkit:Segmented>
+    </StackPanel>
 
 </Page>

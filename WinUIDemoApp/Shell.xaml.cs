@@ -15,4 +15,13 @@ public sealed partial class Shell : Page
     }
 
     public ShellViewModel ViewModel { get; } = new();
+
+    private void TabView_AddTabButtonClick(TabView sender, object args)
+    {
+        sender.TabItems.Add(new TabViewItem
+        {
+            Header = $"Header {sender.TabItems.Count + 1}",
+            Content = new TextBlock { Text = "This is a new tab." }
+        });
+    }
 }

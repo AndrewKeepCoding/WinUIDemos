@@ -9,4 +9,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <TabView AddTabButtonClick="TabView_AddTabButtonClick">
+        <TabView.TabItems>
+            <TabViewItem Header="Header 1" />
+            <TabViewItem Header="Header 2" />
+            <TabViewItem Header="Header 3" />
+        </TabView.TabItems>
+    </TabView>
+
 </Page>

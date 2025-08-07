@@ -43,10 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.TestPlatform.TestHost" Version="17.14.1" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4654" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250606001" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.9.3" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.9.3" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.10.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.10.1" />
   </ItemGroup>
 
   <!-- 

@@ -1,0 +1,9 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask TaskName="CustomMsBuildTasks.NestedClassDataTypeUpdaterBuildTask" AssemblyFile="./CustomMsBuildTasks.dll" />
+
+  <Target Name="UpdateNestedClassDataType" AfterTargets="MarkupCompilerPass2" BeforeTargets="CoreCompile">
+    <NestedClassDataTypeUpdaterBuildTask IntermediateOutputPath="$(IntermediateOutputPath)" />
+  </Target>
+
+</Project>

@@ -9,4 +9,17 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <Page.DataContext>
+        <local:RootViewModel x:Name="ViewModel"/>
+    </Page.DataContext>
+
+    <Grid>
+        <ListView ItemsSource="{x:Bind ViewModel.Sections}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:RootViewModel+NestedViewModel">
+                    <TextBlock Text="{x:Bind SampleText}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </Page>

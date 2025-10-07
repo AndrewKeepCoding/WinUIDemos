@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinUIDemoApp.UnitTests", "tests\WinUIDemoApp.UnitTests\WinUIDemoApp.UnitTests.csproj", "{D64CF9EE-35C2-4427-9C4E-39157E1E9035}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMsBuildTasks", "CustomMsBuildTasks\CustomMsBuildTasks.csproj", "{67D01389-628C-4C6D-AA73-CA36A963A4C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -58,6 +60,18 @@ Global
 		{D64CF9EE-35C2-4427-9C4E-39157E1E9035}.Release|x86.ActiveCfg = Release|x86
 		{D64CF9EE-35C2-4427-9C4E-39157E1E9035}.Release|x86.Build.0 = Release|x86
 		{D64CF9EE-35C2-4427-9C4E-39157E1E9035}.Release|x86.Deploy.0 = Release|x86
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Debug|x64.Build.0 = Debug|Any CPU
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Debug|x86.Build.0 = Debug|Any CPU
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Release|ARM64.Build.0 = Release|Any CPU
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Release|x64.ActiveCfg = Release|Any CPU
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Release|x64.Build.0 = Release|Any CPU
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Release|x86.ActiveCfg = Release|Any CPU
+		{67D01389-628C-4C6D-AA73-CA36A963A4C1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

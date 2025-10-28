@@ -3,10 +3,27 @@
     x:Class="WinUIDemoApp.Shell"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:WinUIDemoApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+
+    <Grid RowDefinitions="Auto,*" RowSpacing="8">
+        <StackPanel
+            Grid.Row="0"
+            Orientation="Horizontal"
+            Spacing="8">
+            <Button Click="AddButton_Click" Content="Add" />
+            <Button Click="RemoveButton_Click" Content="Remove" />
+            <Button Click="OrientationButton_Click" Content="Orientation" />
+            <Button Click="StretchChildButton_Click" Content="StretchChild" />
+        </StackPanel>
+        <controls:WrapPanel
+            x:Name="WrapPanelControl"
+            Grid.Row="1"
+            StretchChild="Last" />
+    </Grid>
 
 </Page>

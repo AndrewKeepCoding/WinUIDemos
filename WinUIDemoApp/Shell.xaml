@@ -9,4 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button Click="Button_Click" Content="Click" />
+    </StackPanel>
+
 </Page>
